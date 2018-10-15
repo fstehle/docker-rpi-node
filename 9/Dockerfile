@@ -1,8 +1,6 @@
-FROM resin/armv7hf-debian-qemu
+FROM resin/rpi-raspbian:jessie
 
 ENV DEBIAN_FRONTEND noninteractive
-
-RUN [ "cross-build-start" ]
 
 RUN apt-get update && \
     apt-get install -yq \
@@ -16,5 +14,3 @@ RUN echo 'deb-src https://deb.nodesource.com/node_9.x jessie main' >> /etc/apt/s
 RUN apt-get update && \
     apt-get install -yq \
             nodejs
-
-RUN [ "cross-build-end" ]
